@@ -1,0 +1,135 @@
+# =============================================================================
+# Python
+# =============================================================================
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[codz]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py.cover
+*.lcov
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Sphinx documentation
+docs/_build/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Type checkers
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+.pytype/
+
+# Linters / formatters
+.ruff_cache/
+
+# Cython debug symbols
+cython_debug/
+
+# =============================================================================
+# Virtual environments
+# =============================================================================
+.env
+.envrc
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# pyenv (commented out — if you use pyenv and want to pin a version, uncheck)
+# .python-version
+
+# =============================================================================
+# IDE / Editors
+# =============================================================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# =============================================================================
+# OS-specific
+# =============================================================================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# =============================================================================
+# cocotb / Simulation artifacts
+# =============================================================================
+sim_build/
+results.xml
+*.vcd
+*.fst
+*.ghw
+*.shm/
+*.wlf
+transcript
+vsim.wlf
+work/
+xsim.dir/
+*.jou
+*.pb
+*.log
+
+# GHDL artifacts
+*.cf
+*.o
+
+# Verilator artifacts
+obj_dir/
+
+# =============================================================================
+# SpaceWire Light DUT submodule build artifacts
+# =============================================================================
+tests/spwlight_loopback/sim_build/
