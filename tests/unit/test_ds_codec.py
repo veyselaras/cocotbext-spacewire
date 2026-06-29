@@ -2,7 +2,7 @@
 
 Run from the project directory with:
 
-    python -m unittest discover -s outputs -p "test_*.py" -v
+    python -m pytest tests/unit -q
 """
 
 from __future__ import annotations
@@ -10,7 +10,13 @@ from __future__ import annotations
 import itertools
 import unittest
 
+from hypothesis import given, settings, strategies as st
+
 from cocotbext.spacewire.ds_codec import ds_encode, ds_decode
+
+
+BIT_SEQUENCES = st.lists(st.integers(min_value=0, max_value=1), max_size=4096)
+INITIAL_LEVELS = st.integers(min_value=0, max_value=1)
 
 
 class DSEncodeTests(unittest.TestCase):
@@ -72,6 +78,56 @@ class DSEncodeTests(unittest.TestCase):
 
     def test_empty_input(self) -> None:
         self.assertEqual(ds_encode(""), ([], []))
+
+    def test_edge_case_patterns_have_valid_transitions(self) -> None:
+        patterns = [
+            [0],
+            [1],
+            [0, 1] * 512,
+            [1, 0] * 512,
+            [0] * 2048,
+            [1] * 2048,
+        ]
+
+        for bits in patterns:
+            with self.subTest(length=len(bits), first_bit=bits[0]):
+                d_levels, s_levels = ds_encode(bits)
+                self.assert_valid_ds(d_levels, s_levels)
+                self.assertEqual(ds_decode(d_levels, s_levels), bits)
+
+    @settings(max_examples=1000)
+    @given(
+        bits=BIT_SEQUENCES,
+        initial_d=INITIAL_LEVELS,
+        initial_s=INITIAL_LEVELS,
+    )
+    def test_property_round_trip_and_single_transition_invariant(
+        self,
+        bits: list[int],
+        initial_d: int,
+        initial_s: int,
+    ) -> None:
+        d_levels, s_levels = ds_encode(
+            bits,
+            initial_d=initial_d,
+            initial_s=initial_s,
+        )
+
+        self.assert_valid_ds(
+            d_levels,
+            s_levels,
+            initial_d=initial_d,
+            initial_s=initial_s,
+        )
+        self.assertEqual(
+            ds_decode(
+                d_levels,
+                s_levels,
+                initial_d=initial_d,
+                initial_s=initial_s,
+            ),
+            bits,
+        )
 
     def test_invalid_binary_string_is_rejected(self) -> None:
         with self.assertRaisesRegex(ValueError, "binary string"):
