@@ -1,0 +1,8 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1783154387" />
+    <testcase name="test_loopback_bits" classname="tb_loopback" file="C:\Users\arasv\Desktop\cocotbext-spacewire\tests\sim\loopback\tb_loopback.py" lineno="21" time="0.002996683120727539" sim_time_ns="701.0" ratio_time="233925.30066035484" />
+    <testcase name="test_loopback_random" classname="tb_loopback" file="C:\Users\arasv\Desktop\cocotbext-spacewire\tests\sim\loopback\tb_loopback.py" lineno="38" time="0.03856468200683594" sim_time_ns="25500.0" ratio_time="661226.7669024186" />
+    <testcase name="test_disconnect_timeout" classname="tb_loopback" file="C:\Users\arasv\Desktop\cocotbext-spacewire\tests\sim\loopback\tb_loopback.py" lineno="55" time="0.0" sim_time_ns="1000.0" ratio_time="inf" />
+  </testsuite>
+</testsuites>
