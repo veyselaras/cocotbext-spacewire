@@ -1,0 +1,11 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1784011636" />
+    <testcase name="test_basic_packet" classname="tb_packet" file="C:\Users\arasv\Desktop\cocotbext-spacewire\tests\sim\packet\tb_packet.py" lineno="53" time="0.039609432220458984" sim_time_ns="22486.0" ratio_time="567693.0655013423" />
+    <testcase name="test_eep_packet" classname="tb_packet" file="C:\Users\arasv\Desktop\cocotbext-spacewire\tests\sim\packet\tb_packet.py" lineno="68" time="0.04033041000366211" sim_time_ns="22535.999999999996" ratio_time="558784.3019189159" />
+    <testcase name="test_empty_packet" classname="tb_packet" file="C:\Users\arasv\Desktop\cocotbext-spacewire\tests\sim\packet\tb_packet.py" lineno="83" time="0.03709888458251953" sim_time_ns="22335.999999999993" ratio_time="602066.6187501604" />
+    <testcase name="test_backpressure_slow_receiver" classname="tb_packet" file="C:\Users\arasv\Desktop\cocotbext-spacewire\tests\sim\packet\tb_packet.py" lineno="104" time="0.8544540405273438" sim_time_ns="48151.0" ratio_time="56352.94318496362" />
+    <testcase name="test_error_reset_zeros_credit" classname="tb_packet" file="C:\Users\arasv\Desktop\cocotbext-spacewire\tests\sim\packet\tb_packet.py" lineno="150" time="0.016437053680419922" sim_time_ns="22100.999999999985" ratio_time="1344584.0373647404" />
+    <testcase name="test_credit_exhaustion_recovery" classname="tb_packet" file="C:\Users\arasv\Desktop\cocotbext-spacewire\tests\sim\packet\tb_packet.py" lineno="179" time="0.43100833892822266" sim_time_ns="37271.0" ratio_time="86473.9649647634" />
+  </testsuite>
+</testsuites>
